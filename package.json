@@ -1,6 +1,6 @@
 {
   "name": "@lsts_tech/ui",
-  "version": "2.0.27",
+  "version": "2.0.28",
   "description": "LSTech UI component library",
   "keywords": [
     "ui",
@@ -41,7 +41,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "homepage": "https://github.com/lstechnologysolutions/ui#readme",
+  "homepage": "https://lstech.solutions",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lstechnologysolutions/ui.git"
