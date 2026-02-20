@@ -1,0 +1,90 @@
+{
+  "name": "@lsts_tech/ui",
+  "version": "2.0.27",
+  "description": "LSTech UI component library",
+  "keywords": [
+    "ui",
+    "components",
+    "react",
+    "tailwindcss",
+    "radix-ui"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/index.css"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --external react --external react-dom",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --external react --external react-dom --watch",
+    "lint": "eslint 'src/**/*.{ts,tsx,js,jsx}'",
+    "check-types": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo node_modules storybook-static",
+    "prepublishOnly": "pnpm run build",
+    "generate:component": "echo 'Add component generator here'",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "homepage": "https://github.com/lstechnologysolutions/ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lstechnologysolutions/ui.git"
+  },
+  "author": "LSTS Solutions",
+  "bugs": {
+    "url": "https://github.com/lstechnologysolutions/ui/issues"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-dropdown-menu": "^2.1.15",
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.511.0",
+    "tailwind-merge": "^3.3.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3",
+    "@lsts_tech/typescript-config": "workspace:*",
+    "@lsts_tech/eslint-config": "workspace:*",
+    "@storybook/addon-essentials": "^8.5.0",
+    "@storybook/addon-interactions": "^8.5.0",
+    "@storybook/addon-onboarding": "^8.5.0",
+    "@storybook/blocks": "^8.5.0",
+    "@storybook/react": "^8.5.0",
+    "@storybook/react-vite": "^8.5.0",
+    "@storybook/test": "^8.5.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "storybook": "^8.5.0",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7",
+    "tsup": "^8.0.0",
+    "typescript": "^5",
+    "vite": "^6.0.0"
+  }
+}
