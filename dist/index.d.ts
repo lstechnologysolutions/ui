@@ -97,6 +97,39 @@ declare const CardDescription: React.ForwardRefExoticComponent<React.HTMLAttribu
 declare const CardContent: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
 declare const CardFooter: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
 
+declare const footerVariants: (props?: ({
+    variant?: "default" | "brand" | "ghost" | "dark" | null | undefined;
+    padding?: "default" | "none" | "compact" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+interface FooterProps extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof footerVariants> {
+}
+declare const Footer: React.ForwardRefExoticComponent<FooterProps & React.RefAttributes<HTMLElement>>;
+declare const FooterContainer: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+declare const FooterGrid: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+interface FooterBrandProps extends React.HTMLAttributes<HTMLDivElement> {
+    name?: string;
+    description?: string;
+}
+declare const FooterBrand: React.ForwardRefExoticComponent<FooterBrandProps & React.RefAttributes<HTMLDivElement>>;
+interface FooterSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+    title?: string;
+    span?: number;
+}
+declare const FooterSection: React.ForwardRefExoticComponent<FooterSectionProps & React.RefAttributes<HTMLDivElement>>;
+interface FooterLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+}
+declare const FooterLink: React.ForwardRefExoticComponent<FooterLinkProps & React.RefAttributes<HTMLAnchorElement>>;
+declare const FooterSocials: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+interface FooterSocialLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+    label: string;
+}
+declare const FooterSocialLink: React.ForwardRefExoticComponent<FooterSocialLinkProps & React.RefAttributes<HTMLAnchorElement>>;
+declare const FooterSeparator: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLHRElement> & React.RefAttributes<HTMLHRElement>>;
+interface FooterBottomProps extends React.HTMLAttributes<HTMLDivElement> {
+    version?: string;
+}
+declare const FooterBottom: React.ForwardRefExoticComponent<FooterBottomProps & React.RefAttributes<HTMLDivElement>>;
+
 declare const inputVariants: (props?: ({
     variant?: "default" | "brand" | "ghost" | "filled" | null | undefined;
     size?: "default" | "sm" | "lg" | "xl" | null | undefined;
@@ -108,6 +141,34 @@ interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "
     rightIcon?: React.ReactNode;
 }
 declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
+
+interface LocaleOption {
+    /** Locale code, e.g. "en", "es" */
+    value: string;
+    /** Display label, e.g. "English", "Español" */
+    label: string;
+    /** Optional flag emoji or icon */
+    flag?: string;
+}
+interface LanguageSwitcherProps {
+    /** Available locales */
+    locales: LocaleOption[];
+    /** Currently active locale code */
+    currentLocale: string;
+    /** Callback when a locale is selected */
+    onLocaleChange: (locale: string) => void;
+    /** Visual variant */
+    variant?: "segmented" | "dropdown" | "pills" | "inline";
+    /** Size */
+    size?: "sm" | "md" | "lg";
+    /** Show the globe icon */
+    showIcon?: boolean;
+    /** Show flag emoji/icon */
+    showFlag?: boolean;
+    /** Additional class names */
+    className?: string;
+}
+declare function LanguageSwitcher({ locales, currentLocale, onLocaleChange, variant, size, showIcon, showFlag, className, }: LanguageSwitcherProps): react_jsx_runtime.JSX.Element;
 
 declare const Separator: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLHRElement> & React.RefAttributes<HTMLHRElement>>;
 
@@ -152,4 +213,4 @@ declare function cn(...inputs: ClassValue[]): string;
 declare function formatDate(input: string | number): string;
 declare function formatCurrency(amount: number): string;
 
-export { Alert, AlertDescription, type AlertProps, AlertTitle, Avatar, AvatarFallback, AvatarImage, Badge, type BadgeProps, type Brand, type BrandOption, BrandProvider, type BrandProviderProps, BrandSwitcher, type BrandSwitcherProps, Button, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, type CardProps, CardTitle, Input, type InputProps, Separator, Tabs, TabsContent, TabsList, TabsTrigger, type Theme, type ThemeOption, ThemeProvider, type ThemeProviderProps, ThemeSwitcher, type ThemeSwitcherProps, alertVariants, badgeVariants, buttonVariants, cardVariants, cn, defaultBrandOptions, formatCurrency, formatDate, inputVariants, themeOptions, useBrand, useTheme };
+export { Alert, AlertDescription, type AlertProps, AlertTitle, Avatar, AvatarFallback, AvatarImage, Badge, type BadgeProps, type Brand, type BrandOption, BrandProvider, type BrandProviderProps, BrandSwitcher, type BrandSwitcherProps, Button, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, type CardProps, CardTitle, Footer, FooterBottom, type FooterBottomProps, FooterBrand, type FooterBrandProps, FooterContainer, FooterGrid, FooterLink, type FooterLinkProps, type FooterProps, FooterSection, type FooterSectionProps, FooterSeparator, FooterSocialLink, type FooterSocialLinkProps, FooterSocials, Input, type InputProps, LanguageSwitcher, type LanguageSwitcherProps, type LocaleOption, Separator, Tabs, TabsContent, TabsList, TabsTrigger, type Theme, type ThemeOption, ThemeProvider, type ThemeProviderProps, ThemeSwitcher, type ThemeSwitcherProps, alertVariants, badgeVariants, buttonVariants, cardVariants, cn, defaultBrandOptions, footerVariants, formatCurrency, formatDate, inputVariants, themeOptions, useBrand, useTheme };

@@ -5,7 +5,21 @@ export { Badge, badgeVariants } from "./components/badge";
 export { BrandSwitcher, defaultBrandOptions } from "./components/brand-switcher";
 export { Button, buttonVariants } from "./components/button";
 export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, cardVariants } from "./components/card";
+export {
+  Footer,
+  FooterContainer,
+  FooterGrid,
+  FooterBrand,
+  FooterSection,
+  FooterLink,
+  FooterSocials,
+  FooterSocialLink,
+  FooterSeparator,
+  FooterBottom,
+  footerVariants,
+} from "./components/footer";
 export { Input, inputVariants } from "./components/input";
+export { LanguageSwitcher } from "./components/language-switcher";
 export { Separator } from "./components/separator";
 export { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/tabs";
 export { ThemeSwitcher, themeOptions } from "./components/theme-switcher";
@@ -37,4 +51,13 @@ export type { BrandOption, BrandSwitcherProps } from "./components/brand-switche
 export type { ButtonProps } from "./components/button";
 export type { CardProps } from "./components/card";
 export type { InputProps } from "./components/input";
+export type {
+  FooterProps,
+  FooterBrandProps,
+  FooterSectionProps,
+  FooterLinkProps,
+  FooterSocialLinkProps,
+  FooterBottomProps,
+} from "./components/footer";
 export type { ThemeOption, ThemeSwitcherProps } from "./components/theme-switcher";
+export type { LanguageSwitcherProps, LocaleOption } from "./components/language-switcher";

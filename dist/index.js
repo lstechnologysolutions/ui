@@ -47,7 +47,18 @@ __export(index_exports, {
   CardFooter: () => CardFooter,
   CardHeader: () => CardHeader,
   CardTitle: () => CardTitle,
+  Footer: () => Footer,
+  FooterBottom: () => FooterBottom,
+  FooterBrand: () => FooterBrand,
+  FooterContainer: () => FooterContainer,
+  FooterGrid: () => FooterGrid,
+  FooterLink: () => FooterLink,
+  FooterSection: () => FooterSection,
+  FooterSeparator: () => FooterSeparator,
+  FooterSocialLink: () => FooterSocialLink,
+  FooterSocials: () => FooterSocials,
   Input: () => Input,
+  LanguageSwitcher: () => LanguageSwitcher,
   Separator: () => Separator,
   Tabs: () => Tabs,
   TabsContent: () => TabsContent,
@@ -61,6 +72,7 @@ __export(index_exports, {
   cardVariants: () => cardVariants,
   cn: () => cn,
   defaultBrandOptions: () => defaultBrandOptions,
+  footerVariants: () => footerVariants,
   formatCurrency: () => formatCurrency,
   formatDate: () => formatDate,
   inputVariants: () => inputVariants,
@@ -622,11 +634,158 @@ var CardFooter = React5.forwardRef(({ className, ...props }, ref) => {
 });
 CardFooter.displayName = "CardFooter";
 
-// src/components/input.tsx
+// src/components/footer.tsx
 var React6 = __toESM(require("react"));
 var import_class_variance_authority5 = require("class-variance-authority");
 var import_jsx_runtime8 = require("react/jsx-runtime");
-var inputVariants = (0, import_class_variance_authority5.cva)(
+var footerVariants = (0, import_class_variance_authority5.cva)(
+  "w-full transition-all duration-normal",
+  {
+    variants: {
+      variant: {
+        default: "bg-card text-card-foreground border-t border-border",
+        dark: "bg-[hsl(222.2,84%,4.9%)] text-[hsl(210,40%,98%)]",
+        brand: "bg-gradient-brand text-brand-primary-foreground",
+        ghost: "bg-transparent text-foreground"
+      },
+      padding: {
+        default: "pt-16 pb-8",
+        compact: "pt-8 pb-4",
+        none: ""
+      }
+    },
+    defaultVariants: {
+      variant: "dark",
+      padding: "default"
+    }
+  }
+);
+var Footer = React6.forwardRef(
+  ({ className, variant, padding, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    "footer",
+    {
+      ref,
+      className: cn(footerVariants({ variant, padding, className })),
+      ...props,
+      children
+    }
+  )
+);
+Footer.displayName = "Footer";
+var FooterContainer = React6.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  "div",
+  {
+    ref,
+    className: cn("mx-auto w-full max-w-7xl px-6 lg:px-8", className),
+    ...props
+  }
+));
+FooterContainer.displayName = "FooterContainer";
+var FooterGrid = React6.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  "div",
+  {
+    ref,
+    className: cn(
+      "grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-12",
+      className
+    ),
+    ...props
+  }
+));
+FooterGrid.displayName = "FooterGrid";
+var FooterBrand = React6.forwardRef(
+  ({ className, name, description, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { ref, className: cn("col-span-1 lg:col-span-4", className), ...props, children: [
+    name && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: "text-2xl font-bold tracking-tight mb-2", children: name }),
+    description && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "text-sm opacity-70 max-w-xs mb-6 leading-relaxed", children: description }),
+    children
+  ] })
+);
+FooterBrand.displayName = "FooterBrand";
+var FooterSection = React6.forwardRef(
+  ({ className, title, span = 2, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    "div",
+    {
+      ref,
+      className: cn(`col-span-1 lg:col-span-${span}`, className),
+      ...props,
+      children: [
+        title && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h4", { className: "text-sm font-semibold uppercase tracking-wider mb-4 opacity-90", children: title }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("ul", { className: "space-y-3", children })
+      ]
+    }
+  )
+);
+FooterSection.displayName = "FooterSection";
+var FooterLink = React6.forwardRef(
+  ({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { className: "list-none", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    "a",
+    {
+      ref,
+      className: cn(
+        "text-sm opacity-60 hover:opacity-100 transition-opacity duration-fast cursor-pointer inline-flex items-center gap-1.5",
+        className
+      ),
+      ...props,
+      children
+    }
+  ) })
+);
+FooterLink.displayName = "FooterLink";
+var FooterSocials = React6.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { ref, className: cn("flex items-center gap-3", className), ...props, children }));
+FooterSocials.displayName = "FooterSocials";
+var FooterSocialLink = React6.forwardRef(({ className, label, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  "a",
+  {
+    ref,
+    "aria-label": label,
+    className: cn(
+      "inline-flex items-center justify-center w-9 h-9 rounded-full",
+      "bg-white/10 hover:bg-white/20 transition-all duration-fast",
+      "hover:scale-110 active:scale-95",
+      className
+    ),
+    ...props,
+    children
+  }
+));
+FooterSocialLink.displayName = "FooterSocialLink";
+var FooterSeparator = React6.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  "hr",
+  {
+    ref,
+    className: cn("border-t border-white/10 my-8", className),
+    ...props
+  }
+));
+FooterSeparator.displayName = "FooterSeparator";
+var FooterBottom = React6.forwardRef(
+  ({ className, version, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    "div",
+    {
+      ref,
+      className: cn(
+        "flex flex-col sm:flex-row items-center justify-between gap-4 pt-6",
+        className
+      ),
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "flex flex-col sm:flex-row items-center gap-4 text-sm opacity-60", children }),
+        version && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "inline-flex items-center gap-1.5 text-xs font-mono opacity-40 select-none", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" }),
+          "v",
+          version
+        ] })
+      ]
+    }
+  )
+);
+FooterBottom.displayName = "FooterBottom";
+
+// src/components/input.tsx
+var React7 = __toESM(require("react"));
+var import_class_variance_authority6 = require("class-variance-authority");
+var import_jsx_runtime9 = require("react/jsx-runtime");
+var inputVariants = (0, import_class_variance_authority6.cva)(
   "flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-fast",
   {
     variants: {
@@ -665,7 +824,7 @@ var inputVariants = (0, import_class_variance_authority5.cva)(
     }
   }
 );
-var Input = React6.forwardRef(
+var Input = React7.forwardRef(
   ({
     className,
     variant,
@@ -677,7 +836,7 @@ var Input = React6.forwardRef(
     type,
     ...props
   }, ref) => {
-    const input = /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    const input = /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
       "input",
       {
         type,
@@ -687,9 +846,9 @@ var Input = React6.forwardRef(
       }
     );
     if (leftIcon || rightIcon) {
-      return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "relative flex items-center", children: [
-        leftIcon && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "absolute left-3 text-muted-foreground pointer-events-none", children: leftIcon }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "relative flex items-center", children: [
+        leftIcon && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "absolute left-3 text-muted-foreground pointer-events-none", children: leftIcon }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
           "input",
           {
             type,
@@ -702,7 +861,7 @@ var Input = React6.forwardRef(
             ...props
           }
         ),
-        rightIcon && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "absolute right-3 text-muted-foreground pointer-events-none", children: rightIcon })
+        rightIcon && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "absolute right-3 text-muted-foreground pointer-events-none", children: rightIcon })
       ] });
     }
     return input;
@@ -710,10 +869,187 @@ var Input = React6.forwardRef(
 );
 Input.displayName = "Input";
 
+// src/components/language-switcher.tsx
+var React8 = __toESM(require("react"));
+var import_lucide_react4 = require("lucide-react");
+var import_jsx_runtime10 = require("react/jsx-runtime");
+function LanguageSwitcher({
+  locales,
+  currentLocale,
+  onLocaleChange,
+  variant = "dropdown",
+  size = "md",
+  showIcon = true,
+  showFlag = true,
+  className
+}) {
+  const [isOpen, setIsOpen] = React8.useState(false);
+  const containerRef = React8.useRef(null);
+  const currentOption = locales.find((l) => l.value === currentLocale);
+  React8.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+  const sizeClasses = {
+    sm: { button: "h-7 px-2 text-xs gap-1", item: "px-2 py-1 text-xs" },
+    md: { button: "h-9 px-3 text-sm gap-2", item: "px-3 py-2 text-sm" },
+    lg: { button: "h-10 px-4 text-base gap-2", item: "px-4 py-2.5 text-base" }
+  };
+  const sc = sizeClasses[size];
+  if (variant === "segmented") {
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      "div",
+      {
+        className: cn(
+          "inline-flex items-center rounded-lg border bg-muted p-1",
+          className
+        ),
+        children: locales.map((locale) => {
+          const isActive = currentLocale === locale.value;
+          return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+            "button",
+            {
+              onClick: () => onLocaleChange(locale.value),
+              className: cn(
+                "relative flex items-center justify-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-fast",
+                "hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                isActive ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:bg-muted"
+              ),
+              children: [
+                showFlag && locale.flag && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: locale.flag }),
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: locale.label })
+              ]
+            },
+            locale.value
+          );
+        })
+      }
+    );
+  }
+  if (variant === "pills") {
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: cn("flex items-center gap-1.5", className), children: locales.map((locale) => {
+      const isActive = currentLocale === locale.value;
+      return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+        "button",
+        {
+          onClick: () => onLocaleChange(locale.value),
+          className: cn(
+            "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium transition-all duration-fast",
+            "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            isActive ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground hover:border-border-hover hover:text-foreground"
+          ),
+          children: [
+            showFlag && locale.flag && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: locale.flag }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: locale.label }),
+            isActive && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_lucide_react4.Check, { className: "h-3 w-3" })
+          ]
+        },
+        locale.value
+      );
+    }) });
+  }
+  if (variant === "inline") {
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: cn("flex items-center gap-2", className), children: [
+      showIcon && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_lucide_react4.Globe, { className: "h-4 w-4 opacity-60 shrink-0" }),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "flex items-center gap-1", children: locales.map((locale, idx) => {
+        const isActive = currentLocale === locale.value;
+        return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(React8.Fragment, { children: [
+          idx > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "text-muted-foreground opacity-40 select-none", children: "/" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+            "button",
+            {
+              onClick: () => onLocaleChange(locale.value),
+              className: cn(
+                "text-sm transition-all duration-fast focus:outline-none",
+                isActive ? "font-semibold text-foreground" : "text-muted-foreground hover:text-foreground"
+              ),
+              children: locale.flag && showFlag ? locale.flag : locale.value.toUpperCase()
+            }
+          )
+        ] }, locale.value);
+      }) })
+    ] });
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { ref: containerRef, className: cn("relative", className), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+      "button",
+      {
+        onClick: () => setIsOpen(!isOpen),
+        className: cn(
+          "inline-flex items-center justify-center rounded-md border border-input bg-background font-medium transition-all duration-fast",
+          "hover:bg-background-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+          sc.button
+        ),
+        "aria-expanded": isOpen,
+        "aria-haspopup": "listbox",
+        children: [
+          showIcon && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_lucide_react4.Globe, { className: "h-4 w-4 shrink-0" }),
+          showFlag && currentOption?.flag && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "shrink-0", children: currentOption.flag }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: currentOption?.label ?? currentLocale }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+            import_lucide_react4.ChevronDown,
+            {
+              className: cn(
+                "h-3.5 w-3.5 opacity-50 transition-transform duration-fast",
+                isOpen && "rotate-180"
+              )
+            }
+          )
+        ]
+      }
+    ),
+    isOpen && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      "div",
+      {
+        className: cn(
+          "absolute z-50 mt-1.5 min-w-[140px] overflow-hidden rounded-lg border bg-popover text-popover-foreground shadow-lg",
+          "animate-scale-in origin-top"
+        ),
+        role: "listbox",
+        children: locales.map((locale) => {
+          const isActive = currentLocale === locale.value;
+          return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+            "button",
+            {
+              role: "option",
+              "aria-selected": isActive,
+              onClick: () => {
+                onLocaleChange(locale.value);
+                setIsOpen(false);
+              },
+              className: cn(
+                "flex w-full items-center gap-2 transition-colors duration-fast",
+                "hover:bg-muted focus:outline-none focus:bg-muted",
+                isActive && "bg-muted/60 font-medium",
+                sc.item
+              ),
+              children: [
+                showFlag && locale.flag && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "shrink-0", children: locale.flag }),
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "flex-1 text-left", children: locale.label }),
+                isActive && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_lucide_react4.Check, { className: "h-4 w-4 text-primary shrink-0" })
+              ]
+            },
+            locale.value
+          );
+        })
+      }
+    )
+  ] });
+}
+
 // src/components/separator.tsx
-var React7 = __toESM(require("react"));
-var import_jsx_runtime9 = require("react/jsx-runtime");
-var Separator = React7.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+var React9 = __toESM(require("react"));
+var import_jsx_runtime11 = require("react/jsx-runtime");
+var Separator = React9.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
   "hr",
   {
     ref,
@@ -724,9 +1060,9 @@ var Separator = React7.forwardRef(({ className, ...props }, ref) => /* @__PURE__
 Separator.displayName = "Separator";
 
 // src/components/tabs.tsx
-var React8 = __toESM(require("react"));
-var import_jsx_runtime10 = require("react/jsx-runtime");
-var Tabs = React8.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+var React10 = __toESM(require("react"));
+var import_jsx_runtime12 = require("react/jsx-runtime");
+var Tabs = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
   "div",
   {
     ref,
@@ -735,7 +1071,7 @@ var Tabs = React8.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (
   }
 ));
 Tabs.displayName = "Tabs";
-var TabsList = React8.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+var TabsList = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
   "div",
   {
     ref,
@@ -748,7 +1084,7 @@ var TabsList = React8.forwardRef(({ className, ...props }, ref) => /* @__PURE__ 
   }
 ));
 TabsList.displayName = "TabsList";
-var TabsTrigger = React8.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+var TabsTrigger = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
   "button",
   {
     ref,
@@ -760,7 +1096,7 @@ var TabsTrigger = React8.forwardRef(({ className, ...props }, ref) => /* @__PURE
   }
 ));
 TabsTrigger.displayName = "TabsTrigger";
-var TabsContent = React8.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+var TabsContent = React10.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
   "div",
   {
     ref,
@@ -774,9 +1110,9 @@ var TabsContent = React8.forwardRef(({ className, ...props }, ref) => /* @__PURE
 TabsContent.displayName = "TabsContent";
 
 // src/providers/theme-provider.tsx
-var React9 = __toESM(require("react"));
-var import_jsx_runtime11 = require("react/jsx-runtime");
-var ThemeContext = React9.createContext(
+var React11 = __toESM(require("react"));
+var import_jsx_runtime13 = require("react/jsx-runtime");
+var ThemeContext = React11.createContext(
   void 0
 );
 function ThemeProvider({
@@ -786,15 +1122,15 @@ function ThemeProvider({
   enableSystem = true,
   disableTransitionOnChange = false
 }) {
-  const [theme, setThemeState] = React9.useState(defaultTheme);
-  const [resolvedTheme, setResolvedTheme] = React9.useState("light");
-  React9.useEffect(() => {
+  const [theme, setThemeState] = React11.useState(defaultTheme);
+  const [resolvedTheme, setResolvedTheme] = React11.useState("light");
+  React11.useEffect(() => {
     const stored = localStorage.getItem(storageKey);
     if (stored) {
       setThemeState(stored);
     }
   }, [storageKey]);
-  const setTheme = React9.useCallback(
+  const setTheme = React11.useCallback(
     (newTheme) => {
       setThemeState(newTheme);
       if (typeof window !== "undefined") {
@@ -803,7 +1139,7 @@ function ThemeProvider({
     },
     [storageKey]
   );
-  React9.useEffect(() => {
+  React11.useEffect(() => {
     if (typeof window === "undefined") return;
     const root = document.documentElement;
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -840,14 +1176,14 @@ function ThemeProvider({
       return () => mediaQuery.removeEventListener("change", applyTheme);
     }
   }, [theme, enableSystem, disableTransitionOnChange]);
-  const value = React9.useMemo(
+  const value = React11.useMemo(
     () => ({ theme, setTheme, resolvedTheme }),
     [theme, setTheme, resolvedTheme]
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(ThemeContext.Provider, { value, children });
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ThemeContext.Provider, { value, children });
 }
 function useTheme() {
-  const context = React9.useContext(ThemeContext);
+  const context = React11.useContext(ThemeContext);
   if (context === void 0) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
@@ -855,26 +1191,26 @@ function useTheme() {
 }
 
 // src/components/theme-switcher.tsx
-var import_lucide_react4 = require("lucide-react");
-var import_jsx_runtime12 = require("react/jsx-runtime");
+var import_lucide_react5 = require("lucide-react");
+var import_jsx_runtime14 = require("react/jsx-runtime");
 var themeOptions = [
   {
     value: "light",
     label: "Light",
     description: "Always use light mode",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_lucide_react4.Sun, { className: "h-4 w-4" })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_lucide_react5.Sun, { className: "h-4 w-4" })
   },
   {
     value: "dark",
     label: "Dark",
     description: "Always use dark mode",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_lucide_react4.Moon, { className: "h-4 w-4" })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_lucide_react5.Moon, { className: "h-4 w-4" })
   },
   {
     value: "system",
     label: "System",
     description: "Follow system preference",
-    icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_lucide_react4.Monitor, { className: "h-4 w-4" })
+    icon: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_lucide_react5.Monitor, { className: "h-4 w-4" })
   }
 ];
 function ThemeSwitcher({
@@ -891,9 +1227,9 @@ function ThemeSwitcher({
     lg: "h-10 px-4"
   };
   if (variant === "buttons") {
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: cn("flex items-center gap-1", className), children: themeOptions.map((option) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: cn("flex items-center gap-1", className), children: themeOptions.map((option) => {
       const isActive = theme === option.value;
-      return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
         Button,
         {
           variant: isActive ? "secondary" : "ghost",
@@ -906,7 +1242,7 @@ function ThemeSwitcher({
           ),
           children: [
             showIcons && option.icon,
-            showLabel && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { children: option.label })
+            showLabel && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { children: option.label })
           ]
         },
         option.value
@@ -914,7 +1250,7 @@ function ThemeSwitcher({
     }) });
   }
   if (variant === "segmented") {
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
       "div",
       {
         className: cn(
@@ -923,7 +1259,7 @@ function ThemeSwitcher({
         ),
         children: themeOptions.map((option) => {
           const isActive = theme === option.value;
-          return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+          return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
             "button",
             {
               onClick: () => setTheme(option.value),
@@ -934,7 +1270,7 @@ function ThemeSwitcher({
               ),
               children: [
                 showIcons && option.icon,
-                showLabel && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { children: option.label })
+                showLabel && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { children: option.label })
               ]
             },
             option.value
@@ -944,10 +1280,10 @@ function ThemeSwitcher({
     );
   }
   if (variant === "cards") {
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: cn("grid gap-3", className), children: themeOptions.map((option) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: cn("grid gap-3", className), children: themeOptions.map((option) => {
       const isActive = theme === option.value;
       const isResolved = resolvedTheme === (option.value === "system" ? void 0 : option.value);
-      return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
         "button",
         {
           onClick: () => setTheme(option.value),
@@ -957,7 +1293,7 @@ function ThemeSwitcher({
             isActive && "border-primary bg-primary/5"
           ),
           children: [
-            showIcons && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+            showIcons && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
               "div",
               {
                 className: cn(
@@ -967,25 +1303,25 @@ function ThemeSwitcher({
                 children: option.icon
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex-1", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "font-medium flex items-center gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "font-medium flex items-center gap-2", children: [
                 option.label,
-                option.value === "system" && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "text-xs text-muted-foreground", children: [
+                option.value === "system" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { className: "text-xs text-muted-foreground", children: [
                   "(",
                   resolvedTheme,
                   ")"
                 ] })
               ] }),
-              option.description && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "text-sm text-muted-foreground", children: option.description })
+              option.description && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "text-sm text-muted-foreground", children: option.description })
             ] }),
-            isActive && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_lucide_react4.Check, { className: "h-5 w-5 text-primary shrink-0" })
+            isActive && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_lucide_react5.Check, { className: "h-5 w-5 text-primary shrink-0" })
           ]
         },
         option.value
       );
     }) });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
     "select",
     {
       value: theme,
@@ -995,7 +1331,7 @@ function ThemeSwitcher({
         "focus:outline-none focus:ring-1 focus:ring-ring",
         className
       ),
-      children: themeOptions.map((option) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: option.value, children: option.label }, option.value))
+      children: themeOptions.map((option) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("option", { value: option.value, children: option.label }, option.value))
     }
   );
 }
@@ -1017,7 +1353,18 @@ function ThemeSwitcher({
   CardFooter,
   CardHeader,
   CardTitle,
+  Footer,
+  FooterBottom,
+  FooterBrand,
+  FooterContainer,
+  FooterGrid,
+  FooterLink,
+  FooterSection,
+  FooterSeparator,
+  FooterSocialLink,
+  FooterSocials,
   Input,
+  LanguageSwitcher,
   Separator,
   Tabs,
   TabsContent,
@@ -1031,6 +1378,7 @@ function ThemeSwitcher({
   cardVariants,
   cn,
   defaultBrandOptions,
+  footerVariants,
   formatCurrency,
   formatDate,
   inputVariants,
